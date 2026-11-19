@@ -1,0 +1,1401 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ICT 104 · Unit 5 — Object-Based Programming</title><style>
+:root{--bg:#f5f7fb;--p:#fff;--s:#f0f4f9;--t:#17243a;--m:#596b84;--l:#dbe3ee;--a:#087e65;--a2:#d9f4eb;--blue:#315f9f;--rose:#8b1d5d;color-scheme:light;font:16px/1.7 Inter,"Segoe UI",system-ui,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 4%,#e3f3ef 0,transparent 27rem),var(--bg);color:var(--t)}button,input,select{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--l);box-shadow:0 4px 20px #26385008}.bar{max-width:1440px;margin:auto;padding:12px 28px;min-height:68px;display:flex;gap:10px;align-items:center}.brand{font-weight:800;letter-spacing:-.04em;margin-right:auto;font-size:15px}.brand b{color:var(--a)}.btn,.tab{padding:9px 14px;border:1px solid var(--l);border-radius:10px;background:white;color:var(--t);font-weight:650;transition:transform .16s,box-shadow .16s,border-color .16s}.btn:hover,.tab:hover{transform:translateY(-1px);box-shadow:0 5px 15px #17243a12;border-color:#aebed1}.tab.active,.primary{background:var(--a);color:white;border-color:var(--a)}.wrap{max-width:1440px;margin:0 auto;padding:28px;display:grid;grid-template-columns:248px minmax(0,1fr);gap:26px}.side{position:sticky;top:92px;align-self:start;background:rgba(255,255,255,.9);border:1px solid var(--l);border-radius:16px;padding:15px;box-shadow:0 12px 35px #25374a0b}.side>button{width:100%;text-align:left;background:var(--s);border-color:transparent}.side input{width:100%;padding:10px 12px;background:#fbfcfe;color:var(--t);border:1px solid var(--l);border-radius:9px;margin:10px 0 12px;outline:none}.side input:focus,input:focus,select:focus{border-color:var(--a);box-shadow:0 0 0 3px #087e6518}.side nav a{display:block;color:var(--m);text-decoration:none;padding:8px 10px;border-radius:8px;font-size:14px;font-weight:550;transition:background .14s,color .14s}.side nav a:hover{background:var(--a2);color:var(--a)}main{min-width:0}.view{display:none}.view.active{display:block}.hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(116deg,#fff 15%,#edf8f4 100%);border:1px solid #d1e6dd;border-radius:22px;padding:clamp(26px,5vw,54px);margin-bottom:22px;box-shadow:0 20px 55px #183e3510}.hero:after{content:"{}";position:absolute;z-index:-1;right:5%;top:8%;font:800 clamp(110px,20vw,230px)/1 ui-monospace,monospace;letter-spacing:-.13em;color:#087e650b;transform:rotate(-8deg)}.eyebrow{color:var(--a);text-transform:uppercase;letter-spacing:.15em;font-size:11px;font-weight:800}.hero h1{font-size:clamp(36px,5.5vw,62px);line-height:1.02;letter-spacing:-.06em;max-width:760px;margin:13px 0 15px}.hero p{max-width:740px;margin:0;color:var(--m);font-size:17px}.section{background:var(--p);border:1px solid var(--l);border-radius:17px;padding:clamp(20px,3vw,34px);margin-bottom:18px;box-shadow:0 8px 28px #25374a08;scroll-margin-top:90px}.section h2{font-size:25px;letter-spacing:-.035em;margin:0 0 10px}.section h3{font-size:18px;letter-spacing:-.015em;margin:27px 0 8px}.section p{margin:10px 0}.muted{color:var(--m)}table{border-collapse:separate;border-spacing:0;width:100%;display:block;overflow:auto;margin:13px 0 18px;border:1px solid var(--l);border-radius:11px}td,th{text-align:left;vertical-align:top;border-bottom:1px solid var(--l);padding:10px 13px;min-width:120px}th{color:#075d4e;background:#edf7f3;font-size:12px;text-transform:uppercase;letter-spacing:.07em;font-weight:750}tr:last-child td{border-bottom:0}td:first-child{font-weight:650;color:#263953}code{color:var(--rose);font: .91em ui-monospace,SFMono-Regular,Consolas,monospace;background:#f8eff5;padding:.08em .28em;border-radius:4px}pre{overflow:auto;background:#f3f6fa;color:#1b2b43;border:1px solid #dce4ef;border-radius:12px;padding:17px 19px;line-height:1.65;box-shadow:inset 3px 0 0 #56ae91}pre code{color:inherit;background:transparent;padding:0}.call,.card{padding:14px 16px;background:#f0f7f4;border:1px solid #d9ebe4;border-left:3px solid #42a888;border-radius:0 11px 11px 0;margin:14px 0}.warn{background:#fff8eb;border-color:#f0d7a7;border-left-color:#d79538}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{border:1px solid var(--l);border-radius:12px;background:#fbfcfe;margin:12px 0}.card b{color:var(--a)}.gloss{columns:2;column-gap:34px}.term{break-inside:avoid;padding:10px 0;border-bottom:1px solid var(--l);color:var(--m);font-size:14px}.term b{color:#1b684f;font-size:15px}.stats,.controls{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.stat,.badge{padding:7px 11px;background:#f5f8fb;border:1px solid var(--l);border-radius:9px;color:#51647e;font-size:14px}.badge{color:var(--a);border-color:#b8ddcf;background:#f1faf6;font-weight:700}.controls{margin:16px 0 18px}.controls label{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:650;color:var(--m)}select{padding:9px 11px;background:#fff;color:var(--t);border:1px solid var(--l);border-radius:9px}.qbox{background:#f7f9fc;border:1px solid var(--l);padding:22px;border-radius:15px}.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--m);font-size:14px}.qtext{font-size:20px;line-height:1.5;white-space:pre-wrap;font-weight:620;margin:16px 0}.opts{display:grid;gap:9px}.opt{padding:12px 14px;text-align:left;color:var(--t);background:#fff;border:1px solid var(--l);border-radius:10px;transition:border-color .15s,background .15s}.opt:hover:not(:disabled){border-color:#8cc9b5;background:#f7fcf9}.opt.sel{outline:2px solid #86c5ad}.opt.right{border-color:#38a977;background:#ebf8f0}.opt.wrong{border-color:#d85c65;background:#fff0f0}.feedback{display:none;padding:14px;margin-top:14px;background:#fff;border:1px solid var(--l);border-radius:10px}.feedback.show{display:block}.qnav{display:flex;justify-content:space-between;gap:8px;margin-top:16px}.gridnav{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin:12px 0}.num{padding:7px 3px;border:1px solid var(--l);background:#fff;color:var(--m);border-radius:7px;font-size:12px;transition:background .15s}.num:hover{background:#eaf5f0}.num.current{outline:2px solid #5eaa8c}.num.right{color:#167845;background:#eaf8ef}.num.wrong{color:#ae2937;background:#fff0f0}.section ul{padding-left:22px}.section li{padding:3px 0}.section li::marker{color:var(--a)}
+@media(max-width:850px){.wrap{display:block;padding:14px}.side{position:static;margin-bottom:14px}.grid{grid-template-columns:1fr}.gloss{columns:1}.bar{padding:10px 14px;flex-wrap:wrap}.hero{border-radius:17px}.section{border-radius:14px;padding:20px}.hero:after{right:2%;top:4%;opacity:.7}}@media(max-width:520px){.bar{gap:6px}.brand{width:100%;margin:0}.tab,.btn{padding:8px 10px;font-size:13px}.qtext{font-size:18px}.gridnav{grid-template-columns:repeat(8,1fr)}.hero p{font-size:15px}}
++</style></head><body>
+<header class="top"><div class="bar"><div class="brand"><b>ICT 104</b> / UNIT 05</div><button class="tab active" data-view="notes">Study Notes</button><button class="tab" data-view="quiz">100-Question Quiz</button></div></header>
+<div class="wrap"><aside class="side"><button class="btn" id="toc">☰ Contents</button><input id="search" placeholder="Filter notes / glossary"><nav id="nav"><a href="#objectives">Objectives</a><a href="#classes">1 · Classes & Objects</a><a href="#methods">2 · Methods</a><a href="#static">3 · Static / Instance</a><a href="#scope">4 · Scope</a><a href="#casting">5 · Casting</a><a href="#compare">6 · Comparing</a><a href="#takeaways">Takeaways</a><a href="#glossary">Glossary</a></nav></aside><main>
+<section id="notes" class="view active"><div class="hero"><div class="eyebrow">Intermediate programming · Java</div><h1>Object-Based Programming</h1><p class="muted">A searchable, handout-aligned guide to objects, references, methods, scope, conversions, and comparison.</p></div>
+<article class="section searchable" id="objectives"><h2>Learning objectives & overview</h2><p>Explain classes and objects; create library objects; call instance and static methods; explain String immutability and use StringBuilder; pass arguments; identify variable scope; cast and convert primitives, wrappers, and text; compare objects and find their runtime type. Unit 5 builds on familiar String and Scanner objects; Unit 6 introduces designing your own classes.</p></article>
+<article class="section searchable" id="classes"><h2>1. Classes and Objects</h2><div class="grid"><div class="card"><b>Class:</b> a blueprint describing data and actions (methods); by itself it is only a description.</div><div class="card"><b>Object / instance:</b> a specific thing created from a class, with its own data. A class can create many instances.</div></div><h3>1.1 Java Class Library (API)</h3><p>The API is Java's collection of ready-made classes grouped into packages. <code>java.lang</code> is available automatically; other packages need imports.</p><table><tr><th>Class</th><th>Package</th><th>Purpose</th></tr><tr><td>String</td><td>java.lang</td><td>Immutable text</td></tr><tr><td>StringBuilder</td><td>java.lang</td><td>Mutable text</td></tr><tr><td>Math</td><td>java.lang</td><td>sqrt, pow, PI</td></tr><tr><td>Integer, Double, …</td><td>java.lang</td><td>Primitive wrapper objects</td></tr><tr><td>Scanner</td><td>java.util</td><td>Reading input; import needed</td></tr><tr><td>Arrays</td><td>java.util</td><td>Array tools toString, sort; import needed</td></tr></table><pre><code>import java.util.Scanner;
+import java.util.Arrays;
+// java.lang classes need no import</code></pre><h3>1.2 Creating objects with new</h3><p>Syntax: <code>ClassName variable = new ClassName(startingData);</code>. Parentheses hold initial data. The dot operator calls an object's methods.</p><pre><code>String school = new String("ISAT-U");
+StringBuilder message = new StringBuilder("Welcome");
+String city = "Iloilo"; // String literal shortcut
+message.append(" to "); message.append(school);
+System.out.println(message); // Welcome to ISAT-U
+System.out.println(city.toUpperCase()); // ILOILO</code></pre><div class="call"><b>String shortcut:</b> literals create Strings directly; new String(...) is rarely needed. StringBuilder and Scanner use new.</div><h3>1.3 Objects are reference types</h3><p>Object variables hold a reference (an arrow to the object), not the object itself. Assignment copies the arrow, not the object.</p><pre><code>StringBuilder sb1 = new StringBuilder("Hello");
+StringBuilder sb2 = sb1; // same object
+sb2.append(" World");
+System.out.println(sb1); // Hello World
+System.out.println(sb2); // Hello World
+StringBuilder sb3 = null;
+System.out.println(sb3); // null</code></pre><div class="call warn">null means no object. Calling sb3.append("x") throws NullPointerException.</div></article>
+<article class="section searchable" id="methods"><h2>2. Methods</h2><p>A method is a named block that performs a task; it can receive parameters and return a result.</p><h3>2.1 String instance methods</h3><p>Call an instance method on an object. Indexes start at zero; substring start is included and end excluded.</p><table><tr><th>Method</th><th>Purpose and example</th></tr><tr><td>length()</td><td>Count; "Java".length() → 4</td></tr><tr><td>toUpperCase()</td><td>Copy in capitals; "Java" → "JAVA"</td></tr><tr><td>toLowerCase()</td><td>Copy in lowercase; "Java" → "java"</td></tr><tr><td>charAt(i)</td><td>Character at i; charAt(1) → 'a'</td></tr><tr><td>indexOf(s)</td><td>First position or −1; indexOf("va") → 2</td></tr><tr><td>substring(a,b)</td><td>From a through b-1; substring(0,2) → "Ja"</td></tr><tr><td>contains(s)</td><td>Test presence; contains("av") → true</td></tr><tr><td>trim()</td><td>Copy without outer spaces; " hi " → "hi"</td></tr></table><pre><code>String school="ISAT-U Iloilo";
+System.out.println(school.length());       // 13
+System.out.println(school.toUpperCase());  // ISAT-U ILOILO
+System.out.println(school.charAt(0));      // I
+System.out.println(school.contains("Iloilo")); // true
+System.out.println(school.indexOf("Iloilo"));  // 7
+System.out.println(school.substring(0,6)); // ISAT-U</code></pre><h3>2.2 String vs StringBuilder</h3><p>String is immutable: methods return a new value. Save it. StringBuilder mutates its object.</p><pre><code>String name="ana"; name.toUpperCase(); // lost; still ana
+name=name.toUpperCase();             // now ANA
+StringBuilder sb=new StringBuilder("Ana");
+sb.append(" Cruz"); sb.insert(0,"Ms. "); // Ms. Ana Cruz
+sb.reverse(); // zurC anA .sM</code></pre><table><tr><th>Builder method</th><th>Effect</th></tr><tr><td>append(x)</td><td>Add to end</td></tr><tr><td>insert(i,x)</td><td>Insert at index i, shift rest</td></tr><tr><td>reverse()</td><td>Reverse characters</td></tr><tr><td>length()</td><td>Character count</td></tr><tr><td>toString()</td><td>Ordinary String copy of contents</td></tr></table><h3>2.3 Writing methods</h3><pre><code>static returnType methodName(parameterList) {
+  // statements
+  return value; // omit for void
+}</code></pre><p>Header parts: <code>static</code> class-level modifier; return type or <code>void</code>; method name; typed parameter list; body in braces. Return ends a method and sends a result. A parameter is in the header; an argument is the actual call value.</p><pre><code>static void greet(String name) { System.out.println("Hello, "+name); }
+static int square(int n) { return n*n; }
+static double average(int a,int b,int c) { return (a+b+c)/3.0; }
+greet("Ana"); int sq=square(7); // argument Ana; sq = 49</code></pre><div class="call warn">Arguments match parameters by number, order, and type. Every non-void path returns the declared type. A void call cannot be assigned to a variable.</div><h3>2.4 Passing arguments</h3><p><b>Java always passes by value.</b> A primitive parameter gets a copy of the primitive; changing it doesn't change the caller. An object/array parameter gets a copy of its reference, so mutation of the shared object is visible. Reassigning the parameter doesn't reassign the caller's reference.</p><pre><code>static void tryChange(int n){ n=100; }
+static void bonus(int[] a){ for(int i=0;i&lt;a.length;i++) a[i]+=5; }
+int num=5; tryChange(num); // remains 5
+int[] scores={80,90,70}; bonus(scores);
+System.out.println(Arrays.toString(scores)); // [85, 95, 75]</code></pre><div class="call">The handout informally calls the object case pass-by-reference; technically Java passes the reference value by value.</div></article>
+<article class="section searchable" id="static"><h2>3. Instance and class (static) members</h2><table><tr><th>Property</th><th>Instance</th><th>Class (static)</th></tr><tr><td>Keyword</td><td>None</td><td>static</td></tr><tr><td>Copies</td><td>One per object</td><td>One shared per class</td></tr><tr><td>Call form</td><td>object.member</td><td>Class.member</td></tr><tr><td>Needs object?</td><td>Yes</td><td>No</td></tr><tr><td>Examples</td><td>name.length(), sb.append("x")</td><td>Math.max(), sqrt(), pow(), PI, Integer.MAX_VALUE</td></tr></table><pre><code>name.length(); Math.max(12,30); // 30
+Math.sqrt(81); // 9.0
+Math.pow(2,5); // 32.0
+Math.PI; Integer.MAX_VALUE; // 2147483647</code></pre><div class="call warn">Calling a non-static helper directly from static main gives “non-static method cannot be referenced from a static context”. Make it static or call it through an object.</div></article>
+<article class="section searchable" id="scope"><h2>4. Variable scope</h2><p>Scope is where a variable is usable. Blocks are between { }. Nested blocks see enclosing variables; enclosing code cannot see nested declarations.</p><pre><code>static int total=0; // class variable
+public static void main(String[] args) {
+  int x=10; // local
+  for(int i=1;i&lt;=3;i++){ int doubled=i*2; total+=doubled; }
+  addBonus(5);
+}
+static void addBonus(int bonus){ total+=bonus; } // parameter
+// total is 17; i ends with the loop</code></pre><table><tr><th>Kind</th><th>Declared</th><th>Scope</th></tr><tr><td>Local</td><td>Method</td><td>From declaration to block end</td></tr><tr><td>Parameter</td><td>Method header</td><td>Method body</td></tr><tr><td>Loop variable</td><td>For statement</td><td>That loop only</td></tr><tr><td>Class variable</td><td>Class, with static</td><td>All class methods; shared</td></tr><tr><td>Instance variable</td><td>Class, without static</td><td>Instance methods; per object</td></tr></table><div class="call warn">Out-of-scope use: cannot find symbol. Duplicate name in overlapping scope: variable is already defined. Separate methods can each declare x.</div></article>
+<article class="section searchable" id="casting"><h2>5. Casting and converting</h2><p>Casting changes a value's type, e.g. <code>(int)9.7</code>.</p><h3>5.1 Primitive casting</h3><p>Widening is automatic: byte → short → int → long → float → double; char → int converts Unicode. Narrowing needs explicit cast and may lose information.</p><pre><code>int count=7; double wide=count; // 7.0
+double price=99.75; int pesos=(int)price; // 99, truncates
+char letter='A'; int code=letter; // 65
+char next=(char)(code+1); // B
+double average=(double)17/5; // 3.4</code></pre><p>Narrowing truncates, not rounds; use Math.round to round. Cast before division to retain decimals.</p><h3>5.2 Primitive, wrapper, text</h3><table><tr><th>Primitive</th><th>Wrapper</th><th>Text → value</th></tr><tr><td>int</td><td>Integer</td><td>Integer.parseInt("19")</td></tr><tr><td>double</td><td>Double</td><td>Double.parseDouble("1.75")</td></tr><tr><td>long</td><td>Long</td><td>Long.parseLong("9000000000")</td></tr><tr><td>float</td><td>Float</td><td>Float.parseFloat("2.5")</td></tr><tr><td>boolean</td><td>Boolean</td><td>Boolean.parseBoolean("true")</td></tr><tr><td>char</td><td>Character</td><td>"A".charAt(0)</td></tr></table><p>Number → text: <code>String.valueOf(value)</code>. Autoboxing converts primitive to wrapper; unboxing reverses it.</p><pre><code>int age=Integer.parseInt("19");
+double gpa=Double.parseDouble("1.75");
+String text=String.valueOf(age);
+Integer boxed=age; int unboxed=boxed;</code></pre><div class="call warn">Invalid number text such as Integer.parseInt("abc") throws NumberFormatException.</div><h3>5.3 Read numbers as text</h3><pre><code>Scanner sc=new Scanner(System.in);
+System.out.println("Enter quantity:");
+String line=sc.nextLine();
+int qty=Integer.parseInt(line.trim());
+System.out.println("Total cost: "+qty*25+" pesos");</code></pre><h3>5.4 Object casting preview</h3><p>Upcasting to Object is automatic; downcasting to the real class is explicit.</p><pre><code>Object item="Hello"; // upcast
+String text=(String)item; // downcast
+System.out.println(text.toUpperCase()); // HELLO</code></pre><p>Wrong downcast throws ClassCastException; use instanceof first.</p></article>
+<article class="section searchable" id="compare"><h2>6. Comparing Objects and checking types</h2><h3>6.1 == vs equals()</h3><p>For object references, == means same object. equals() compares content as that class defines it.</p><pre><code>String a="java", b=new String("java"), c=a;
+a==b; // false
+a.equals(b); // true
+a==c; // true
+"JAVA".equalsIgnoreCase(a); // true</code></pre><p>String literal pooling can make == seem to work; don't rely on it. Compare text with equals or equalsIgnoreCase.</p><h3>6.2 equals() pitfalls</h3><p>StringBuilder.equals behaves like identity comparison. Compare <code>a.toString().equals(b.toString())</code>. Integer wrappers should also use equals; caching −128 to 127 can make == misleading.</p><pre><code>StringBuilder a=new StringBuilder("hi"), b=new StringBuilder("hi");
+a.equals(b); // false
+a.toString().equals(b.toString()); // true
+Integer x=1000,y=1000;
+x==y; // don't rely on it
+x.equals(y); // true</code></pre><h3>6.3 Find an object's class</h3><pre><code>Object a="hello", b=42, c=new StringBuilder("hi");
+a.getClass().getName(); // java.lang.String
+b.getClass().getName(); // java.lang.Integer
+c.getClass().getName(); // java.lang.StringBuilder
+a instanceof String; // true
+b instanceof String; // false</code></pre><p>Use instanceof before a downcast to check runtime compatibility.</p></article>
+<article class="section searchable" id="takeaways"><h2>Key takeaways</h2><ul><li>Class is blueprint; object is instance; API supplies ready-made classes.</li><li>new creates; dot accesses. Reference assignment shares the object.</li><li>String is immutable; store results. StringBuilder changes in place.</li><li>Java passes copies: primitive values or object references.</li><li>Instance members need objects; static members use class names. Scope ends at block.</li><li>Widening is automatic; narrowing needs cast. Wrappers parse text.</li><li>Compare content with equals; inspect types with getClass or instanceof.</li></ul></article><article class="section searchable" id="glossary"><h2>Searchable glossary</h2><div id="glossaryList" class="gloss"></div></article></section>
+<section id="quiz" class="view"><div class="hero"><div class="eyebrow">Interactive practice</div><h1>100 questions. Your pace.</h1><p class="muted">Sequential study, randomized 20-question practice, or topic review. Check each response for instant feedback.</p></div><article class="section"><div class="stats"><span id="score" class="stat">Score 0 / 0</span><span id="accuracy" class="stat">Accuracy 0%</span><span id="streak" class="stat">Streak 0</span></div><div class="controls"><label>Mode <select id="mode"><option value="all">All 100</option><option value="random">Random 20</option><option value="topic">Choose topic</option></select></label><label id="topicWrap" hidden>Topic <select id="topic"><option>Classes & References</option><option>Strings & Methods</option><option>Static vs Instance</option><option>Scope</option><option>Casting & Wrappers</option><option>Comparing Objects</option></select></label><button class="btn primary" id="start">Start mode</button><button class="btn" id="reset">Reset Quiz</button></div><div class="qbox"><div class="qmeta"><span id="count"></span><span id="qtopic" class="badge"></span></div><p id="question" class="qtext"></p><div id="options" class="opts"></div><button id="check" class="btn primary">Check Answer</button><div id="feedback" class="feedback"></div><div class="qnav"><button id="prev" class="btn">← Previous</button><button id="next" class="btn">Next →</button></div></div><p>Question navigator</p><div id="navigator" class="gridnav"></div></article></section></main></div>
+<script>
+const $=s=>document.querySelector(s);
+const glossary=[['Class','Blueprint describing data and behavior.'],['Object / instance','Specific thing created from a class.'],['Java Class Library (API)','Java’s collection of ready-made classes.'],['Package','Named group of related classes.'],['import','Makes a class from another package available.'],['new','Creates an object and returns a reference.'],['Dot operator','Period used to access members.'],['Reference','Value pointing to an object in memory.'],['null','Reference that points to no object.'],['Method','Named block performing a task.'],['Instance method','Method called through an object.'],['Class (static) method','Method called through class name.'],['Immutable','Cannot change after creation; String is immutable.'],['StringBuilder','Mutable text class.'],['Parameter','Variable in a method header.'],['Argument','Actual value passed at a call.'],['Return value','Value sent back with return.'],['Pass-by-value','Java passes a copy of a value.'],['Pass-by-reference','Informal term for copied reference; Java remains pass-by-value.'],['Scope','Program region where variable is usable.'],['Casting','Changing type using (type)value.'],['Widening / narrowing','Automatic larger type / explicit smaller type.'],['Wrapper class','Class representing primitive as object.'],['Autoboxing / unboxing','Primitive-wrapper conversion and reverse.'],['Upcasting / downcasting','General type automatically / explicit cast back.'],['equals()','Method; String and wrappers compare contents.'],['instanceof','Checks object type compatibility.']];
+$('#glossaryList').innerHTML=glossary.map(([a,b])=>'<div class="term"><b>'+a+'</b><div>'+b+'</div></div>').join('');
+// 100 authored prompts in a compact curriculum bank; each becomes a complete question object below.
+const quizQuestions=[
+  {
+    "id": 1,
+    "topic": "Classes & References",
+    "question": "A class is best described as what?",
+    "options": [
+      "A single variable holding a primitive",
+      "A numeric conversion",
+      "A loop scope",
+      "A blueprint for object data and behavior"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 2,
+    "topic": "Classes & References",
+    "question": "An object created from a class is also called what?",
+    "options": [
+      "A numeric conversion",
+      "A loop scope",
+      "An instance",
+      "A package"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 3,
+    "topic": "Classes & References",
+    "question": "Which package is automatically available?",
+    "options": [
+      "A loop scope",
+      "java.lang",
+      "java.util",
+      "A numeric conversion"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 4,
+    "topic": "Classes & References",
+    "question": "Which package contains Scanner?",
+    "options": [
+      "java.util",
+      "java.lang",
+      "A numeric conversion",
+      "A loop scope"
+    ],
+    "correctIndex": 0,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 5,
+    "topic": "Classes & References",
+    "question": "Which import makes Arrays available?",
+    "options": [
+      "import java.lang.Arrays;",
+      "A numeric conversion",
+      "A loop scope",
+      "import java.util.Arrays;"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 6,
+    "topic": "Classes & References",
+    "question": "What is StringBuilder used for?",
+    "options": [
+      "A numeric conversion",
+      "A loop scope",
+      "Mutable text changed in place",
+      "An immutable primitive"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 7,
+    "topic": "Classes & References",
+    "question": "Which syntax creates a builder initialized with Hi?",
+    "options": [
+      "A loop scope",
+      "new StringBuilder(\"Hi\")",
+      "StringBuilder(\"Hi\")",
+      "A numeric conversion"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 8,
+    "topic": "Classes & References",
+    "question": "What does the dot operator do in msg.append(\"!\")?",
+    "options": [
+      "Accesses a member through msg",
+      "Imports a package",
+      "A numeric conversion",
+      "A loop scope"
+    ],
+    "correctIndex": 0,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 9,
+    "topic": "Classes & References",
+    "question": "String city = \"Iloilo\" demonstrates what?",
+    "options": [
+      "Explicit downcasting",
+      "A numeric conversion",
+      "A loop scope",
+      "The String literal shortcut"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 10,
+    "topic": "Classes & References",
+    "question": "After b=a for object references, what does b hold?",
+    "options": [
+      "A numeric conversion",
+      "A loop scope",
+      "A copy of a reference",
+      "A deep copy of the object"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 11,
+    "topic": "Classes & References",
+    "question": "If two references point to one builder, mutation via one is visible through what?",
+    "options": [
+      "A loop scope",
+      "Both references",
+      "Only the mutating variable",
+      "A numeric conversion"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 12,
+    "topic": "Classes & References",
+    "question": "What does null mean for a reference?",
+    "options": [
+      "It points to no object",
+      "It points to an empty String",
+      "A numeric conversion",
+      "A loop scope"
+    ],
+    "correctIndex": 0,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 13,
+    "topic": "Classes & References",
+    "question": "Calling append through null typically throws what?",
+    "options": [
+      "NumberFormatException",
+      "A numeric conversion",
+      "A loop scope",
+      "NullPointerException"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 14,
+    "topic": "Classes & References",
+    "question": "What does Arrays.toString(scores) provide?",
+    "options": [
+      "A numeric conversion",
+      "A loop scope",
+      "Readable array text",
+      "An array clone"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 15,
+    "topic": "Classes & References",
+    "question": "What is a Java package?",
+    "options": [
+      "A loop scope",
+      "A named group of related classes",
+      "A method parameter list",
+      "A numeric conversion"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the Java class, library, and reference model. Assignment copies a reference, not the object."
+  },
+  {
+    "id": 16,
+    "topic": "Strings & Methods",
+    "question": "What is \"ISAT-U Iloilo\".length()?",
+    "options": [
+      "13",
+      "12",
+      "A package import",
+      "A class-level constant"
+    ],
+    "correctIndex": 0,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 17,
+    "topic": "Strings & Methods",
+    "question": "What does \"Java\".charAt(1) return?",
+    "options": [
+      "'J'",
+      "A package import",
+      "A class-level constant",
+      "'a'"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 18,
+    "topic": "Strings & Methods",
+    "question": "What does \"Java\".indexOf(\"va\") return?",
+    "options": [
+      "A package import",
+      "A class-level constant",
+      "2",
+      "1"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 19,
+    "topic": "Strings & Methods",
+    "question": "What is \"Java\".substring(0,2)?",
+    "options": [
+      "A class-level constant",
+      "Ja",
+      "Jav",
+      "A package import"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 20,
+    "topic": "Strings & Methods",
+    "question": "What does \"Java\".contains(\"av\") return?",
+    "options": [
+      "true",
+      "false",
+      "A package import",
+      "A class-level constant"
+    ],
+    "correctIndex": 0,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 21,
+    "topic": "Strings & Methods",
+    "question": "What is \" hi \".trim()?",
+    "options": [
+      " hi ",
+      "A package import",
+      "A class-level constant",
+      "hi"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 22,
+    "topic": "Strings & Methods",
+    "question": "What does \"Java\".toLowerCase() return?",
+    "options": [
+      "A package import",
+      "A class-level constant",
+      "java",
+      "JAVA"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 23,
+    "topic": "Strings & Methods",
+    "question": "Why is name unchanged after name.toUpperCase();?",
+    "options": [
+      "A class-level constant",
+      "String is immutable and result discarded",
+      "The method changes only builders",
+      "A package import"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 24,
+    "topic": "Strings & Methods",
+    "question": "How do you preserve the uppercase result?",
+    "options": [
+      "name = name.toUpperCase();",
+      "name.toUpperCase() = name;",
+      "A package import",
+      "A class-level constant"
+    ],
+    "correctIndex": 0,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 25,
+    "topic": "Strings & Methods",
+    "question": "Which builder method adds text at the end?",
+    "options": [
+      "insert(i,x)",
+      "A package import",
+      "A class-level constant",
+      "append(x)"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 26,
+    "topic": "Strings & Methods",
+    "question": "Which builder method inserts at index i?",
+    "options": [
+      "A package import",
+      "A class-level constant",
+      "insert(i,x)",
+      "append(x)"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 27,
+    "topic": "Strings & Methods",
+    "question": "What does StringBuilder.reverse() do?",
+    "options": [
+      "A class-level constant",
+      "Reverses characters in place",
+      "Sorts characters",
+      "A package import"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 28,
+    "topic": "Strings & Methods",
+    "question": "What does StringBuilder.toString() return?",
+    "options": [
+      "Its contents as a String",
+      "Its memory address",
+      "A package import",
+      "A class-level constant"
+    ],
+    "correctIndex": 0,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 29,
+    "topic": "Strings & Methods",
+    "question": "In square(int n), n is what?",
+    "options": [
+      "An argument",
+      "A package import",
+      "A class-level constant",
+      "A parameter"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 30,
+    "topic": "Strings & Methods",
+    "question": "In square(7), 7 is what?",
+    "options": [
+      "A package import",
+      "A class-level constant",
+      "An argument",
+      "A parameter"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 31,
+    "topic": "Strings & Methods",
+    "question": "What must a non-void method do on every path?",
+    "options": [
+      "A class-level constant",
+      "Return a compatible value",
+      "Print a message",
+      "A package import"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 32,
+    "topic": "Strings & Methods",
+    "question": "Why cannot a void call be assigned to int?",
+    "options": [
+      "It returns no value",
+      "It returns a String",
+      "A package import",
+      "A class-level constant"
+    ],
+    "correctIndex": 0,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 33,
+    "topic": "Strings & Methods",
+    "question": "What does Java pass for an int parameter?",
+    "options": [
+      "A shared reference",
+      "A package import",
+      "A class-level constant",
+      "A copy of the primitive value"
+    ],
+    "correctIndex": 3,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 34,
+    "topic": "Strings & Methods",
+    "question": "Why can a method mutate an array seen by caller?",
+    "options": [
+      "A package import",
+      "A class-level constant",
+      "Copied references point to the same array",
+      "Java copies arrays back on return"
+    ],
+    "correctIndex": 2,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 35,
+    "topic": "Strings & Methods",
+    "question": "What does substring(a,b) return?",
+    "options": [
+      "A class-level constant",
+      "A new String from index a through b-1",
+      "The character at index b",
+      "A package import"
+    ],
+    "correctIndex": 1,
+    "explanation": "This follows the String and StringBuilder behavior or method rule. String is immutable; indexes start at zero."
+  },
+  {
+    "id": 36,
+    "topic": "Static vs Instance",
+    "question": "How is an instance method normally called?",
+    "options": [
+      "Through a particular object",
+      "Through a package",
+      "A local variable",
+      "A String conversion"
+    ],
+    "correctIndex": 0,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 37,
+    "topic": "Static vs Instance",
+    "question": "How is Math.sqrt(81) called?",
+    "options": [
+      "Through a required Math instance",
+      "A local variable",
+      "A String conversion",
+      "Through the Math class name"
+    ],
+    "correctIndex": 3,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 38,
+    "topic": "Static vs Instance",
+    "question": "A static member belongs to what?",
+    "options": [
+      "A local variable",
+      "A String conversion",
+      "The class",
+      "Each object separately"
+    ],
+    "correctIndex": 2,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 39,
+    "topic": "Static vs Instance",
+    "question": "Which is an instance method call?",
+    "options": [
+      "A String conversion",
+      "name.length()",
+      "Math.max(1,2)",
+      "A local variable"
+    ],
+    "correctIndex": 1,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 40,
+    "topic": "Static vs Instance",
+    "question": "Which is a static constant?",
+    "options": [
+      "Math.PI",
+      "name.length()",
+      "A local variable",
+      "A String conversion"
+    ],
+    "correctIndex": 0,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 41,
+    "topic": "Static vs Instance",
+    "question": "What is Math.max(12,30)?",
+    "options": [
+      "12",
+      "A local variable",
+      "A String conversion",
+      "30"
+    ],
+    "correctIndex": 3,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 42,
+    "topic": "Static vs Instance",
+    "question": "What is Math.sqrt(81)?",
+    "options": [
+      "A local variable",
+      "A String conversion",
+      "9.0",
+      "81.0"
+    ],
+    "correctIndex": 2,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 43,
+    "topic": "Static vs Instance",
+    "question": "What is Math.pow(2,5)?",
+    "options": [
+      "A String conversion",
+      "32.0",
+      "10.0",
+      "A local variable"
+    ],
+    "correctIndex": 1,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 44,
+    "topic": "Static vs Instance",
+    "question": "Integer.MAX_VALUE represents what?",
+    "options": [
+      "Largest int value",
+      "Smallest int value",
+      "A local variable",
+      "A String conversion"
+    ],
+    "correctIndex": 0,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 45,
+    "topic": "Static vs Instance",
+    "question": "Integer.parseInt(\"5\") is what kind of method?",
+    "options": [
+      "Instance method",
+      "A local variable",
+      "A String conversion",
+      "Static class method"
+    ],
+    "correctIndex": 3,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 46,
+    "topic": "Static vs Instance",
+    "question": "A static main calls instance helper without object. What happens?",
+    "options": [
+      "A local variable",
+      "A String conversion",
+      "Compiler static-context error",
+      "Java creates object automatically"
+    ],
+    "correctIndex": 2,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 47,
+    "topic": "Static vs Instance",
+    "question": "How many instance field copies exist?",
+    "options": [
+      "A String conversion",
+      "One per object",
+      "One shared per class",
+      "A local variable"
+    ],
+    "correctIndex": 1,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 48,
+    "topic": "Static vs Instance",
+    "question": "How many static variable copies are shared?",
+    "options": [
+      "One per class",
+      "One per object",
+      "A local variable",
+      "A String conversion"
+    ],
+    "correctIndex": 0,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 49,
+    "topic": "Static vs Instance",
+    "question": "What is usual access form for static members?",
+    "options": [
+      "Only objectName.member",
+      "A local variable",
+      "A String conversion",
+      "ClassName.member"
+    ],
+    "correctIndex": 3,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 50,
+    "topic": "Static vs Instance",
+    "question": "Why must directly called helper in static main be static?",
+    "options": [
+      "A local variable",
+      "A String conversion",
+      "Static context has no implicit instance",
+      "Static methods cannot return values"
+    ],
+    "correctIndex": 2,
+    "explanation": "Static members belong to the class; instance members need an object."
+  },
+  {
+    "id": 51,
+    "topic": "Scope",
+    "question": "Scope means what?",
+    "options": [
+      "A method return value",
+      "Where a variable can be used",
+      "The variable value",
+      "A wrapper class"
+    ],
+    "correctIndex": 1,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 52,
+    "topic": "Scope",
+    "question": "A local variable is usable until when?",
+    "options": [
+      "End of its containing block",
+      "End of the whole program",
+      "A wrapper class",
+      "A method return value"
+    ],
+    "correctIndex": 0,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 53,
+    "topic": "Scope",
+    "question": "Where can a parameter be used?",
+    "options": [
+      "Across all classes",
+      "A wrapper class",
+      "A method return value",
+      "Throughout its method"
+    ],
+    "correctIndex": 3,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 54,
+    "topic": "Scope",
+    "question": "Where can a for-loop variable be used?",
+    "options": [
+      "A wrapper class",
+      "A method return value",
+      "Inside that loop",
+      "Everywhere in class"
+    ],
+    "correctIndex": 2,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 55,
+    "topic": "Scope",
+    "question": "Which variable is shared among class methods?",
+    "options": [
+      "A method return value",
+      "Static class variable",
+      "Method parameter",
+      "A wrapper class"
+    ],
+    "correctIndex": 1,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 56,
+    "topic": "Scope",
+    "question": "Which field belongs to each object?",
+    "options": [
+      "Instance variable",
+      "Class variable",
+      "A wrapper class",
+      "A method return value"
+    ],
+    "correctIndex": 0,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 57,
+    "topic": "Scope",
+    "question": "What can a nested block see?",
+    "options": [
+      "Only variables declared later",
+      "A wrapper class",
+      "A method return value",
+      "Its own and enclosing variables"
+    ],
+    "correctIndex": 3,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 58,
+    "topic": "Scope",
+    "question": "After a for loop, its declared i is what?",
+    "options": [
+      "A wrapper class",
+      "A method return value",
+      "Out of scope",
+      "A class variable"
+    ],
+    "correctIndex": 2,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 59,
+    "topic": "Scope",
+    "question": "Using unavailable name usually gives which compiler error?",
+    "options": [
+      "A method return value",
+      "cannot find symbol",
+      "ClassCastException",
+      "A wrapper class"
+    ],
+    "correctIndex": 1,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 60,
+    "topic": "Scope",
+    "question": "Declaring local x twice in one block gives what?",
+    "options": [
+      "variable is already defined",
+      "cannot find symbol",
+      "A wrapper class",
+      "A method return value"
+    ],
+    "correctIndex": 0,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 61,
+    "topic": "Scope",
+    "question": "Why can separate methods each declare local x?",
+    "options": [
+      "Java renames the variables",
+      "A wrapper class",
+      "A method return value",
+      "Their scopes do not overlap"
+    ],
+    "correctIndex": 3,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 62,
+    "topic": "Scope",
+    "question": "A class variable marked static has what scope?",
+    "options": [
+      "A wrapper class",
+      "A method return value",
+      "Available to class methods",
+      "Only its declaration line"
+    ],
+    "correctIndex": 2,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 63,
+    "topic": "Scope",
+    "question": "A variable listed in a method header is what?",
+    "options": [
+      "A method return value",
+      "Parameter",
+      "Argument",
+      "A wrapper class"
+    ],
+    "correctIndex": 1,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 64,
+    "topic": "Scope",
+    "question": "Which punctuation encloses a Java block?",
+    "options": [
+      "Curly braces",
+      "Square brackets",
+      "A wrapper class",
+      "A method return value"
+    ],
+    "correctIndex": 0,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 65,
+    "topic": "Scope",
+    "question": "The loop adds 2,4,6 to 0, then adds 5. What is total?",
+    "options": [
+      "12",
+      "A wrapper class",
+      "A method return value",
+      "17"
+    ],
+    "correctIndex": 3,
+    "explanation": "Variable visibility follows its declaration and containing block."
+  },
+  {
+    "id": 66,
+    "topic": "Casting & Wrappers",
+    "question": "Which is widening?",
+    "options": [
+      "An instance field",
+      "A String method",
+      "int to double",
+      "double to int"
+    ],
+    "correctIndex": 2,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 67,
+    "topic": "Casting & Wrappers",
+    "question": "What syntax narrows double to int?",
+    "options": [
+      "A String method",
+      "(int) value",
+      "(double) value",
+      "An instance field"
+    ],
+    "correctIndex": 1,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 68,
+    "topic": "Casting & Wrappers",
+    "question": "What is (int)99.75?",
+    "options": [
+      "99",
+      "100",
+      "An instance field",
+      "A String method"
+    ],
+    "correctIndex": 0,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 69,
+    "topic": "Casting & Wrappers",
+    "question": "Which rounds 99.75?",
+    "options": [
+      "(int)99.75",
+      "An instance field",
+      "A String method",
+      "Math.round(99.75)"
+    ],
+    "correctIndex": 3,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 70,
+    "topic": "Casting & Wrappers",
+    "question": "What int code does char 'A' have?",
+    "options": [
+      "An instance field",
+      "A String method",
+      "65",
+      "97"
+    ],
+    "correctIndex": 2,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 71,
+    "topic": "Casting & Wrappers",
+    "question": "What character is Unicode code 66?",
+    "options": [
+      "A String method",
+      "B",
+      "A",
+      "An instance field"
+    ],
+    "correctIndex": 1,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 72,
+    "topic": "Casting & Wrappers",
+    "question": "How parse \"19\" to int?",
+    "options": [
+      "Integer.parseInt(\"19\")",
+      "(int)\"19\"",
+      "An instance field",
+      "A String method"
+    ],
+    "correctIndex": 0,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 73,
+    "topic": "Casting & Wrappers",
+    "question": "How parse \"1.75\" to double?",
+    "options": [
+      "Integer.parseInt(\"1.75\")",
+      "An instance field",
+      "A String method",
+      "Double.parseDouble(\"1.75\")"
+    ],
+    "correctIndex": 3,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 74,
+    "topic": "Casting & Wrappers",
+    "question": "Which parses text into long?",
+    "options": [
+      "An instance field",
+      "A String method",
+      "Long.parseLong(text)",
+      "Integer.parseInt(text)"
+    ],
+    "correctIndex": 2,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 75,
+    "topic": "Casting & Wrappers",
+    "question": "Which parses text into float?",
+    "options": [
+      "A String method",
+      "Float.parseFloat(text)",
+      "Double.parseDouble(text)",
+      "An instance field"
+    ],
+    "correctIndex": 1,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 76,
+    "topic": "Casting & Wrappers",
+    "question": "What does Boolean.parseBoolean(\"true\") produce?",
+    "options": [
+      "boolean true",
+      "String \"true\"",
+      "An instance field",
+      "A String method"
+    ],
+    "correctIndex": 0,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 77,
+    "topic": "Casting & Wrappers",
+    "question": "How get a char from \"A\"?",
+    "options": [
+      "(char)\"A\"",
+      "An instance field",
+      "A String method",
+      "\"A\".charAt(0)"
+    ],
+    "correctIndex": 3,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 78,
+    "topic": "Casting & Wrappers",
+    "question": "What converts a number to text?",
+    "options": [
+      "An instance field",
+      "A String method",
+      "String.valueOf(value)",
+      "Integer.parseInt(value)"
+    ],
+    "correctIndex": 2,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 79,
+    "topic": "Casting & Wrappers",
+    "question": "Primitive int assigned to Integer is called what?",
+    "options": [
+      "A String method",
+      "Autoboxing",
+      "Unboxing",
+      "An instance field"
+    ],
+    "correctIndex": 1,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 80,
+    "topic": "Casting & Wrappers",
+    "question": "Integer assigned to int is called what?",
+    "options": [
+      "Unboxing",
+      "Autoboxing",
+      "An instance field",
+      "A String method"
+    ],
+    "correctIndex": 0,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 81,
+    "topic": "Casting & Wrappers",
+    "question": "Parsing \"abc\" as int can throw what?",
+    "options": [
+      "NullPointerException",
+      "An instance field",
+      "A String method",
+      "NumberFormatException"
+    ],
+    "correctIndex": 3,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 82,
+    "topic": "Casting & Wrappers",
+    "question": "Why trim nextLine result before parsing?",
+    "options": [
+      "An instance field",
+      "A String method",
+      "Remove stray outer spaces",
+      "Round the number"
+    ],
+    "correctIndex": 2,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 83,
+    "topic": "Casting & Wrappers",
+    "question": "What is (double)17 / 5?",
+    "options": [
+      "A String method",
+      "3.4",
+      "3",
+      "An instance field"
+    ],
+    "correctIndex": 1,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 84,
+    "topic": "Casting & Wrappers",
+    "question": "Automatic cast from String object to Object is called what?",
+    "options": [
+      "Upcasting",
+      "Downcasting",
+      "An instance field",
+      "A String method"
+    ],
+    "correctIndex": 0,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 85,
+    "topic": "Casting & Wrappers",
+    "question": "Wrong object downcast causes what?",
+    "options": [
+      "NumberFormatException",
+      "An instance field",
+      "A String method",
+      "ClassCastException"
+    ],
+    "correctIndex": 3,
+    "explanation": "Widening is automatic; narrowing is explicit; wrapper parsers convert text."
+  },
+  {
+    "id": 86,
+    "topic": "Comparing Objects",
+    "question": "For object refs, == compares what?",
+    "options": [
+      "A widening conversion",
+      "A parameter declaration",
+      "Whether they point to same object",
+      "Whether contents match"
+    ],
+    "correctIndex": 2,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 87,
+    "topic": "Comparing Objects",
+    "question": "For String text comparison, use what?",
+    "options": [
+      "A parameter declaration",
+      "equals()",
+      "==",
+      "A widening conversion"
+    ],
+    "correctIndex": 1,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 88,
+    "topic": "Comparing Objects",
+    "question": "String a=\"java\", b=new String(\"java\"); a==b is what?",
+    "options": [
+      "false",
+      "true",
+      "A widening conversion",
+      "A parameter declaration"
+    ],
+    "correctIndex": 0,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 89,
+    "topic": "Comparing Objects",
+    "question": "For those Strings, a.equals(b) is what?",
+    "options": [
+      "false",
+      "A widening conversion",
+      "A parameter declaration",
+      "true"
+    ],
+    "correctIndex": 3,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 90,
+    "topic": "Comparing Objects",
+    "question": "If c=a, then a==c is what?",
+    "options": [
+      "A widening conversion",
+      "A parameter declaration",
+      "true",
+      "false"
+    ],
+    "correctIndex": 2,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 91,
+    "topic": "Comparing Objects",
+    "question": "Which compares Strings ignoring case?",
+    "options": [
+      "A parameter declaration",
+      "equalsIgnoreCase()",
+      "equals()",
+      "A widening conversion"
+    ],
+    "correctIndex": 1,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 92,
+    "topic": "Comparing Objects",
+    "question": "Two distinct builders containing hi: a.equals(b) is what?",
+    "options": [
+      "false",
+      "true",
+      "A widening conversion",
+      "A parameter declaration"
+    ],
+    "correctIndex": 0,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 93,
+    "topic": "Comparing Objects",
+    "question": "How compare StringBuilder contents?",
+    "options": [
+      "a==b",
+      "A widening conversion",
+      "A parameter declaration",
+      "a.toString().equals(b.toString())"
+    ],
+    "correctIndex": 3,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 94,
+    "topic": "Comparing Objects",
+    "question": "Why avoid == for Integer values?",
+    "options": [
+      "A widening conversion",
+      "A parameter declaration",
+      "It tests object identity; caching can mislead",
+      "It always compares numeric value"
+    ],
+    "correctIndex": 2,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 95,
+    "topic": "Comparing Objects",
+    "question": "Which Integer range is commonly cached?",
+    "options": [
+      "A parameter declaration",
+      "-128 through 127",
+      "1000 through 2000",
+      "A widening conversion"
+    ],
+    "correctIndex": 1,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 96,
+    "topic": "Comparing Objects",
+    "question": "getClass().getName() returns what?",
+    "options": [
+      "Runtime class name text",
+      "Variable identifier",
+      "A widening conversion",
+      "A parameter declaration"
+    ],
+    "correctIndex": 0,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 97,
+    "topic": "Comparing Objects",
+    "question": "Object x=42; what is x runtime class?",
+    "options": [
+      "int",
+      "A widening conversion",
+      "A parameter declaration",
+      "java.lang.Integer"
+    ],
+    "correctIndex": 3,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 98,
+    "topic": "Comparing Objects",
+    "question": "What does item instanceof String test?",
+    "options": [
+      "A widening conversion",
+      "A parameter declaration",
+      "Runtime type compatibility",
+      "Whether text equals String"
+    ],
+    "correctIndex": 2,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 99,
+    "topic": "Comparing Objects",
+    "question": "Why check instanceof before downcasting?",
+    "options": [
+      "A parameter declaration",
+      "Prevent invalid cast exception",
+      "Make cast implicit",
+      "A widening conversion"
+    ],
+    "correctIndex": 1,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  },
+  {
+    "id": 100,
+    "topic": "Comparing Objects",
+    "question": "Object item=\"hello\"; item instanceof String is what?",
+    "options": [
+      "true",
+      "false",
+      "A widening conversion",
+      "A parameter declaration"
+    ],
+    "correctIndex": 0,
+    "explanation": "Use identity for same-object checks and equals for content. Check instanceof before downcasting."
+  }
+];
+let list=[...quizQuestions],pos=0,choice=null,answers={},streak=0;
+function stats(){let done=list.filter(q=>answers[q.id]!==undefined),ok=done.filter(q=>answers[q.id]===q.correctIndex).length;$('#score').textContent='Score '+ok+' / '+done.length;$('#accuracy').textContent='Accuracy '+(done.length?Math.round(100*ok/done.length):0)+'%';$('#streak').textContent='Streak '+streak}
+function draw(){let q=list[pos];$('#count').textContent='Question '+(pos+1)+' of '+list.length;$('#qtopic').textContent=q.topic;$('#question').textContent=q.question;$('#options').innerHTML=q.options.map((o,i)=>'<button class="opt '+(choice===i?'sel ':'')+(answers[q.id]!==undefined?(i===q.correctIndex?'right':i===answers[q.id]?'wrong':''):'')+'" data-i="'+i+'" '+(answers[q.id]!==undefined?'disabled':'')+'>'+String.fromCharCode(65+i)+'. '+o+'</button>').join('');document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{choice=+b.dataset.i;draw()});let f=$('#feedback');if(answers[q.id]!==undefined){f.className='feedback show';f.innerHTML='<b>'+(answers[q.id]===q.correctIndex?'Correct.':'Not quite.')+'</b> '+q.explanation}else{f.className='feedback'}$('#check').disabled=answers[q.id]!==undefined;$('#prev').disabled=pos===0;$('#next').disabled=pos===list.length-1;$('#navigator').innerHTML=list.map((q,i)=>'<button class="num '+(i===pos?'current ':'')+(answers[q.id]!==undefined?(answers[q.id]===q.correctIndex?'right':'wrong'):'')+'" data-i="'+i+'">'+q.id+'</button>').join('');document.querySelectorAll('.num').forEach(b=>b.onclick=()=>{pos=+b.dataset.i;choice=answers[list[pos].id]??null;draw()});stats()}
+function start(){let m=$('#mode').value;list=m==='random'?[...quizQuestions].sort(()=>Math.random()-.5).slice(0,20):m==='topic'?quizQuestions.filter(q=>q.topic===$('#topic').value):[...quizQuestions];pos=0;choice=null;answers={};streak=0;draw()}
+$('#check').onclick=()=>{if(choice===null)return;let q=list[pos];answers[q.id]=choice;streak=choice===q.correctIndex?streak+1:0;draw()};$('#prev').onclick=()=>{pos--;choice=answers[list[pos].id]??null;draw()};$('#next').onclick=()=>{pos++;choice=answers[list[pos].id]??null;draw()};$('#start').onclick=start;$('#reset').onclick=()=>{answers={};pos=0;choice=null;streak=0;draw()};$('#mode').onchange=()=>$('#topicWrap').hidden=$('#mode').value!=='topic';$('#topic').onchange=start;
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===b.dataset.view));scrollTo(0,0)});$('#toc').onclick=()=>$('#nav').hidden=!$('#nav').hidden;$('#search').oninput=e=>{let s=e.target.value.toLowerCase();document.querySelectorAll('.searchable').forEach(x=>x.hidden=!x.innerText.toLowerCase().includes(s));document.querySelectorAll('.term').forEach(x=>x.hidden=!x.innerText.toLowerCase().includes(s))};draw();
+</script></body></html>
